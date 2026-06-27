@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Project D</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background:black;
+    color:#00b4ff;
+    font-family:monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 20px;
+    font-size:16px;
+    border:none;
+    background:#ffd000;
+    cursor:pointer;
+    display:none;
+}
+
+.glitch{
+    animation:glitch 0.2s infinite;
+}
+
+@keyframes glitch{
+    0%{transform:translate(0);}
+    25%{transform:translate(2px,-2px);}
+    50%{transform:translate(-2px,2px);}
+    75%{transform:translate(2px,2px);}
+    100%{transform:translate(0);}
+}
+</style>
+
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="musica.mp3" type="audio/mp3">
+</audio>
+
+<div>
+
+<h2 id="texto">Conectando ao sistema...</h2>
+
+<button id="btn" onclick="entrar()">ACESSAR</button>
+
+</div>
+
+<script>
+
+let frases=[
+"Conectando ao sistema...",
+"Acessando arquivos...",
+"Bypass de segurança...",
+"Detectando usuário...",
+"Projeto D reconhecido.",
+"Acesso liberado."
+];
+
+let i=0;
+let texto=document.getElementById("texto");
+let btn=document.getElementById("btn");
+
+let loop=setInterval(()=>{
+
+texto.innerHTML=frases[i];
+i++;
+
+if(i>=frases.length){
+    clearInterval(loop);
+    texto.classList.add("glitch");
+    btn.style.display="inline-block";
+}
+
+},1800);
+
+function entrar(){
+    window.location.href="capitulo6.html";
+}
+
+</script>
+
+</body>
+</html>
